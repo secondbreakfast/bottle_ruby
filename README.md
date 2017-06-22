@@ -14,7 +14,9 @@ Interact with the Bottle API in ruby.
 
 ### Installing
 
+```
   $ gem install phone
+```
 
 ### Initialize a Client
 
@@ -29,14 +31,14 @@ client = Bottle::Client.new(uid, token)
 Next, you need to initialize a Bottle::Message object with the message information.
 
 ```ruby
-//  Bottle::Message.new(to_number, name=nil, message_body=nil, file=nil, tags=nil)
+#  Bottle::Message.new(to_number, name=nil, message_body=nil, file=nil, tags=nil)
 message = Bottle::Message.new('(555) 555-5555', 'Billy Bob', 'Hello, World!', nil, ['customer', 'chicago'])
 ```
 
 Alternatively, you can initialize a Bottle::Message object using a hash as the first parameter.
 
 ```ruby
-//  Bottle::Message.new(information_hash)
+#  Bottle::Message.new(information_hash)
 message = Bottle::Message.new(to: '555-555-5555', name: 'Recipient Name', body: 'Body of message', tags: ['tag1', 'tag2'])
 ```
 
