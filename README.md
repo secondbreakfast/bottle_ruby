@@ -15,7 +15,7 @@ Interact with the Bottle API in ruby.
 ### Installing
 
 ```
-  $ gem install phone
+  $ gem install bottle_ruby
 ```
 
 ### Initialize a Client
