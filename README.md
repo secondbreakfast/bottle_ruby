@@ -31,18 +31,11 @@ client = Bottle::Client.new(uid, token)
 Next, you need to initialize a Bottle::Message object with the message information.
 
 ```ruby
-#  Bottle::Message.new(to_number, name=nil, message_body=nil, file=nil, tags=nil)
-message = Bottle::Message.new('(555) 555-5555', 'Billy Bob', 'Hello, World!', nil, ['customer', 'chicago'])
-```
-
-Alternatively, you can initialize a Bottle::Message object using a hash as the first parameter.
-
-```ruby
 #  Bottle::Message.new(information_hash)
 message = Bottle::Message.new(to: '555-555-5555', name: 'Recipient Name', body: 'Body of message', tags: ['tag1', 'tag2'])
 ```
 
-When using a hash, you can also initialize a message using a conversation_id instead of a to phone number.
+You can also initialize a message using a conversation_id instead of a to phone number.
 
 ```ruby
 message = Bottle::Message.new(conversation_id: 100, name: 'Recipient Name', body: 'Body of message', tags: ['tag1', 'tag2'])
@@ -56,6 +49,22 @@ Then, you send the message using the client object.
 client = Bottle::Client.new(uid, token)
 message = Bottle::Message.new(conversation_id: 100, name: 'Recipient Name', body: 'Body of message', tags: ['tag1', 'tag2'])
 message.send(client)
+```
+
+### Creating a Conversation
+
+Initialize a Bottle::Conversation object with the conversation information.
+
+```ruby
+client = Bottle::Client.new(uid, token)
+conversation = Bottle::Conversation.new(phone: '555-555-5555', name: 'Contact Name', tags: ['tag1', 'tag2'])
+result = conversation.send(client)
+```
+
+Alternatively, you can initialize a conversation using a @handle instead of a phone number.
+
+```ruby
+conversation = Bottle::Conversation.new(handle: 'BottleBot', tags: ['tag1', 'tag2'])
 ```
 
 ## Contributors

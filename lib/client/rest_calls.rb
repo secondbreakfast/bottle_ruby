@@ -9,8 +9,9 @@ class Bottle::Client
   def post(url_extension, params)
     connection = Faraday.new(url: API_URL) 
     response = connection.post(url_extension, params.merge({uid: self.uid, token: self.token}))
-    message_attributes = JSON.parse(response.body)
-    return Bottle::Message.new(message_attributes)
+    attributes = JSON.parse(response.body)
+    return Bottle::Message.new(attributes) if url_extension == 'messages'
+    return Bottle::Conversation.new(attributes) if url_extension == 'conversations'
   end
 
 end

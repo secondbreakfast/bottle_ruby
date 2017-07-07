@@ -2,6 +2,7 @@ require 'faraday'
 require 'json'
 
 require 'api_objects/message'
+require 'api_objects/conversation'
 require 'client/rest_calls'
 require 'extensions/hash'
 
